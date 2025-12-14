@@ -2,6 +2,7 @@ package com.bonfire.kitchen.controller;
 
 import com.bonfire.kitchen.entity.Ingredient;
 import com.bonfire.kitchen.repository.IngredientRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -10,11 +11,8 @@ import java.util.List;
 @RequestMapping("/api/ingredients")
 public class IngredientController {
 
-    private final IngredientRepository repo;
-
-    public IngredientController(IngredientRepository repo) {
-        this.repo = repo;
-    }
+    @Autowired
+    private IngredientRepository repo;
 
     @PostMapping
     public Ingredient create(@RequestBody Ingredient ingredient) {

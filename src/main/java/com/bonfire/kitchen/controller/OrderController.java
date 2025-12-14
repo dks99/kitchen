@@ -4,12 +4,10 @@ import com.bonfire.kitchen.entity.Order;
 import com.bonfire.kitchen.service.OrderService;
 import com.bonfire.kitchen.service.ProfitService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -34,5 +32,10 @@ public class OrderController {
         response.put("profit", profit);
 
         return response;
+    }
+
+    @GetMapping
+    public List<Order> getAll() {
+        return orderService.findAll();
     }
 }

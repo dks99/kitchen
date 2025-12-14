@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Service
 public class OrderService {
@@ -16,5 +17,9 @@ public class OrderService {
     public Order createOrder(Order order) {
         order.setOrderTime(LocalDateTime.now());
         return orderRepo.save(order);
+    }
+
+    public List<Order> findAll() {
+        return orderRepo.findAll();
     }
 }
